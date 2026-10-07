@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>TinyMCE Paste from Word — Integration Test</title>
+  <style>
+    body { font-family: sans-serif; max-width: 960px; margin: 40px auto; padding: 0 20px; color: #222; }
+    h1 { font-size: 1.3em; }
+    h2 { font-size: 1.1em; margin-top: 2em; }
+    .note { color: #666; font-size: 13px; margin-bottom: 16px; }
+    textarea { width: 100%; box-sizing: border-box; font-family: monospace; font-size: 12px; }
+    pre { background: #f4f4f4; padding: 12px; overflow: auto; font-size: 12px; max-height: 320px; }
+    label { display: inline-block; margin-right: 16px; font-size: 14px; }
+    button { padding: 6px 14px; }
+  </style>
+</head>
+<body>
+  <h1>TinyMCE Paste from Word — Integration Test</h1>
+  <p class="note">
+    Copy content from Microsoft Word and paste it into the editor. Lists, tables, styles and
+    images (Chrome, Edge and Safari provide the RTF clipboard) are cleaned by the plugin.
+    Use the toggle button in the toolbar to force the cleanup for any pasted HTML.
+  </p>
+
+  <div>
+    <label><input type="checkbox" id="opt-remove-font-styles" /> pastefromword_remove_font_styles</label>
+    <label><input type="checkbox" id="opt-keep-zero-margins" /> pastefromword_keep_zero_margins</label>
+    <label><input type="checkbox" id="opt-inline-images" checked /> pastefromword_inline_images</label>
+    <label><input type="checkbox" id="opt-prompt" /> pastefromword_prompt_cleanup</label>
+    <button id="reinit">Re-create editor</button>
+  </div>
+
+  <textarea id="editor">
+    <p>Paste Word content here.</p>
+  </textarea>
+
+  <h2>Events</h2>
+  <pre id="log"></pre>
+
+  <h2>Clean raw HTML</h2>
+  <p class="note">
+    Paste the raw Word HTML (for example from a saved fixture) and clean it with the API of the plugin:
+    <code>editor.plugins.pastefromword.cleanWord(html)</code>.
+  </p>
+  <textarea id="raw" rows="8" placeholder="<html xmlns:o=...><body><p class=MsoNormal>..."></textarea>
+  <p><button id="clean">Clean</button></p>
+  <pre id="cleaned"></pre>
+
+  <script type="module" src="./main.js"></script>
+</body>
+</html>

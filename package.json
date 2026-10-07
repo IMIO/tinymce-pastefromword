@@ -1,0 +1,56 @@
+{
+  "name": "@imiobe/tinymce-pastefromword",
+  "version": "0.1.0",
+  "description": "TinyMCE plugin that cleans up content pasted from Microsoft Word, ported from the CKEditor 4 Paste from Word plugin: lists, tables, styles and images embedded from the RTF clipboard",
+  "type": "module",
+  "main": "dist/tinymce-pastefromword.umd.cjs",
+  "module": "dist/tinymce-pastefromword.js",
+  "exports": {
+    ".": {
+      "import": "./dist/tinymce-pastefromword.js",
+      "require": "./dist/tinymce-pastefromword.umd.cjs"
+    },
+    "./filter": "./src/filter/index.js"
+  },
+  "files": [
+    "dist",
+    "src",
+    "README.md",
+    "LICENSE.md",
+    "CHANGELOG.md"
+  ],
+  "keywords": [
+    "tinymce",
+    "tinymce-plugin",
+    "paste",
+    "word",
+    "msword",
+    "powerpaste",
+    "ckeditor",
+    "imio"
+  ],
+  "license": "(GPL-2.0-or-later OR LGPL-2.1-or-later OR MPL-1.1)",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/IMIO/tinymce-pastefromword"
+  },
+  "peerDependencies": {
+    "tinymce": ">=6.0.0"
+  },
+  "scripts": {
+    "dev": "vite serve dev/",
+    "build": "vite build",
+    "test": "node --test",
+    "test:corpus": "node --test 'test/corpus/*.test.js'",
+    "lint": "eslint .",
+    "lint:fix": "eslint . --fix"
+  },
+  "devDependencies": {
+    "@eslint/js": "^10.0.1",
+    "eslint": "^10.0.3",
+    "globals": "^17.4.0",
+    "jsdom": "^27.0.0",
+    "tinymce": "^8.3.2",
+    "vite": "^7.3.1"
+  }
+}
